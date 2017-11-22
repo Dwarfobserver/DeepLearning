@@ -1,0 +1,44 @@
+
+class NeuralNetwork {
+    NeuralNetwork(std::string const&);
+    NeuralNetwork(nbInputs, nbOutputs, params);
+
+    std::string serialize() const;
+    int specieDifference(NeuralNetwork const&) const;
+    std::vector<float> compute(std::vector<float> inputs);
+
+    fitness;
+
+    // ...
+}
+
+// Based on specieDifference & fitness, maybe weights params
+std::vector<NeuralNetwork*> select(std::vector<NeuralNetwork*>, count);
+
+class Genomes {
+    Genomes(std::string const&);
+    Genomes(nbNetworks, params);
+
+    std::string serialize() const;
+    void evolve();
+
+    generation;
+    level_id;
+    params;
+}
+
+WaitState - Terminal :
+    level <n>
+    show <n>
+    run <n> <nbGenerations>
+    create
+    play
+
+Application :
+    toggle visibility / speed level
+
+PlayState :
+    setNeuralNetwork(opt)
+
+
+
