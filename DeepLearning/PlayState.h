@@ -8,6 +8,7 @@
 
 class PlayState : public ApplicationState {
 public:
+	PlayState();
 	void onEnter() override;
 	void onExit() override;
 	void onUpdate(float deltaSec) override;

@@ -1,15 +1,19 @@
 ﻿
 #include "PlayState.h"
 #include "Globals.h"
+#include "Application.h"
 
+
+PlayState::PlayState() {
+	getTextures().addTexture("bricks", getConfiguration().resourcesRoot + "bricks.png");
+	getTextures().addTexture("lava", getConfiguration().resourcesRoot + "lava.png");
+	ground = ground::parse(getConfiguration().resourcesRoot + "ground.txt");
+}
 
 void PlayState::onEnter() {
 	distance = 0.f;
 	finished = false;
 
-	getTextures().addTexture("bricks", getConfiguration().resourcesRoot + "bricks.png");
-	getTextures().addTexture("lava", getConfiguration().resourcesRoot + "lava.png");
-	ground = ground::parse(getConfiguration().resourcesRoot + "ground.txt");
 	for (auto i = 0u; i < ground.size(); ++i) {
 		std::string texture;
 		switch (ground[i]) {
