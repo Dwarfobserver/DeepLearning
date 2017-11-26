@@ -138,20 +138,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Application.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="Terminal.cpp" />
     <ClCompile Include="WaitState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Application.h" />
     <ClInclude Include="ApplicationState.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="PlayState.h" />
+    <ClInclude Include="Terminal.h" />
     <ClInclude Include="WaitState.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

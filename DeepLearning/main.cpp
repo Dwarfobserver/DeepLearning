@@ -2,6 +2,7 @@
 #include "Globals.h"
 #include "WaitState.h"
 #include "PlayState.h"
+#include "Application.h"
 
 
 int main() {

@@ -5,8 +5,6 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <string>
 #include <map>
-#include <memory>
-#include <SFML/Graphics/RenderWindow.hpp>
 
 
 struct Configuration {
@@ -25,22 +23,6 @@ struct Configuration {
 	Controller controller;
 };
 
-class ApplicationState;
-class Application {
-public:
-	void run();
-	void addState(std::string const& name, std::unique_ptr<ApplicationState>&& state);
-	void setState(std::string const& name);
-private:
-	ApplicationState* currentState;
-	std::map<std::string, std::unique_ptr<ApplicationState>> states;
-	sf::RenderWindow window;
-
-	void update();
-	void render();
-	void handleInputs();
-};
-
 class Textures {
 public:
 	void addTexture(std::string const& name, std::string const& file);
@@ -51,4 +33,5 @@ private:
 
 Configuration& getConfiguration();
 Textures& getTextures();
+class Application;
 Application& getApplication();
