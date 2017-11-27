@@ -26,7 +26,7 @@
 		void InitializeNetwork();
 		void InitializeWeights();
 		void LoadWeights(std::vector<double> const& weights);
-
+		double random(double a, double b);
 		int32_t GetInputHiddenWeightIndex(int32_t inputIdx, int32_t hiddenIdx) const { return inputIdx * m_numHidden + hiddenIdx; }
 		int32_t GetHiddenOutputWeightIndex(int32_t hiddenIdx, int32_t outputIdx) const { return hiddenIdx * m_numOutputs + outputIdx; }
 

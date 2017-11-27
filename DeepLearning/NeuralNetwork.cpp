@@ -60,32 +60,23 @@
 
 	void Network::InitializeWeights()
 	{
-		std::random_device rd;
-		std::mt19937 generator(rd());
-
-		double const distributionRangeHalfWidth = (2.4 / m_numInputs);
-		double const standardDeviation = distributionRangeHalfWidth * 2 / 6;
-		std::normal_distribution<> normalDistribution(0, standardDeviation);
-
-		// Set weights to normally distributed random values between [-2.4 / numInputs, 2.4 / numInputs]
+		// Set weights to random values between [-0.5,0.5]
 		for (int32_t inputIdx = 0; inputIdx <= m_numInputs; inputIdx++)
 		{
 			for (int32_t hiddenIdx = 0; hiddenIdx < m_numHidden; hiddenIdx++)
 			{
 				int32_t const weightIdx = GetInputHiddenWeightIndex(inputIdx, hiddenIdx);
-				double const weight = normalDistribution(generator);
-				m_weightsInputHidden[weightIdx] = weight;
+				m_weightsInputHidden[weightIdx] = random(-0.5,0.5);
 			}
 		}
 
-		// Set weights to normally distributed random values between [-2.4 / numInputs, 2.4 / numInputs]
+		// Set weights to random values between [-0.5,0.5]
 		for (int32_t hiddenIdx = 0; hiddenIdx <= m_numHidden; hiddenIdx++)
 		{
 			for (int32_t outputIdx = 0; outputIdx < m_numOutputs; outputIdx++)
 			{
 				int32_t const weightIdx = GetHiddenOutputWeightIndex(hiddenIdx, outputIdx);
-				double const weight = normalDistribution(generator);
-				m_weightsHiddenOutput[weightIdx] = weight;
+				m_weightsHiddenOutput[weightIdx] = random(-0.5,0.5);
 			}
 		}
 	}
@@ -108,4 +99,8 @@
 			m_weightsHiddenOutput[HiddenOutputIdx] = weights[weightIdx];
 			weightIdx++;
 		}
+	}
+	double Network::random(double a, double b)
+	{
+		return (rand() / (double)RAND_MAX) * (b - a) + a;
 	}
